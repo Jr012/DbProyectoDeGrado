@@ -1,6 +1,6 @@
-package com.example.DbProyectoDeGrado.auth.config;
+package com.example.DbProyectoDeGrado.Auth.Config;
 
-import com.example.DbProyectoDeGrado.auth.repository.UserRepository;
+import com.example.DbProyectoDeGrado.Auth.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -15,8 +15,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 @Configuration
 @RequiredArgsConstructor
-public class AuthConfig {
-
+public class ApplicationConfig {
 
     private final UserRepository userRepository;
 
@@ -43,6 +42,7 @@ public class AuthConfig {
     @Bean
     public UserDetailsService userDetailService() {
         return username -> userRepository.findByUsername(username)
-                .orElseThrow(()-> new UsernameNotFoundException("User not fournd"));
+        .orElseThrow(()-> new UsernameNotFoundException("User not fournd"));
     }
+
 }

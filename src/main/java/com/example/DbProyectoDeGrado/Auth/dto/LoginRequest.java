@@ -1,5 +1,4 @@
-package com.example.DbProyectoDeGrado.auth.dto;
-
+package com.example.DbProyectoDeGrado.Auth.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -10,12 +9,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class DtoSingUpRequest {
-
+public class LoginRequest {
     String username;
-    String password;
-    String firtsname;
-    String lastname;
-    String contry;
-
+    String password; 
 }

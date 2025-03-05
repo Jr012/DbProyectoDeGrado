@@ -1,4 +1,4 @@
-package com.example.DbProyectoDeGrado.auth.dto;
+package com.example.DbProyectoDeGrado.Auth.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -7,9 +7,8 @@ import lombok.NoArgsConstructor;
 
 @Data
 @Builder
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 public class AuthResponse {
-
-    String token;
+    String token; 
 }

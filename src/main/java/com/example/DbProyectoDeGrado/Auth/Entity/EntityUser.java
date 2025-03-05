@@ -1,4 +1,4 @@
-package com.example.DbProyectoDeGrado.auth.entity;
+package com.example.DbProyectoDeGrado.Auth.Entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -12,48 +12,45 @@ import org.springframework.security.core.userdetails.UserDetails;
 import java.util.Collection;
 import java.util.List;
 
-
 @Data
 @Builder
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
+@Entity
 @Table(name="user", uniqueConstraints = {@UniqueConstraint(columnNames = {"username"})})
-public class EntityUsuario implements UserDetails  {
-
+public class EntityUser implements UserDetails {
     @Id
     @GeneratedValue
     Integer id;
+        @Basic
+        @Column(nullable = false)
 
-    @Basic
-    @Column(nullable = false)
     String username;
+
     @Column(nullable = false)
-    String password;
-    String firtsname;
     String lastname;
-    String contry;
-    EntityRole role;
+    String firstname;
+    String country;
+    String password;
+    @Enumerated(EnumType.STRING)
+    Role role;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return List.of(new SimpleGrantedAuthority(role.name()));
+      return List.of(new SimpleGrantedAuthority((role.name())));
     }
-
     @Override
     public boolean isAccountNonExpired() {
-        return true;
+       return true;
     }
-
     @Override
     public boolean isAccountNonLocked() {
-        return true;
+       return true;
     }
-
     @Override
     public boolean isCredentialsNonExpired() {
         return true;
     }
-
     @Override
     public boolean isEnabled() {
         return true;
